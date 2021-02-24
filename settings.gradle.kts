@@ -1,2 +1,2 @@
-rootProject.name = "batect"
+rootProject.name = "idea-batect"
 

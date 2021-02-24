@@ -11,6 +11,80 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <!-- batectFile language-->
+<!--        <lang.parserDefinition language="batect.yml"-->
+<!--                               implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.parser.BatectParserDefinition"/>-->
+<!--        <lang.commenter language="batect.yml"-->
+<!--                        implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectCommenter"/>-->
+<!--        <braceMatcher filetype="batect.yml"-->
+<!--                      implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectPairedBraceMatcher"/>-->
+        <fileType language="batect.yml"
+                  fieldName="BATECT_CONFIG_FILE_TYPE"
+                  implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectConfigFileType"
+                  name="batect"
+                  fileNames="batect.yml"
+                  extensions="yml"/>
+<!--        <lang.syntaxHighlighter language="batect.yml"-->
+<!--                                implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.highlighting.highlight.BatectSyntaxHighlighter"/>-->
+<!--        <completion.contributor language="batect.yml"-->
+<!--                                implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.completion.BatectfileCompletionContributor"/>-->
+
+<!--        <colorSettingsPage-->
+<!--          implementation="org.zhangwenqing.jetbrains.batect.batectFile.highlighting.highlight.BatectColorSettingsPage"/>-->
+
+<!--        <annotator language="batect.yml"-->
+<!--                   implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.highlighting.highlight.BatectColorAnnotator"/>-->
+<!--        <lang.findUsagesProvider language="batect.yml"-->
+<!--                                 implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileFindUsagesProvider"/>-->
+
+        <!-- sic, same implementation as for findUsages -->
+<!--        <elementDescriptionProvider implementation="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileFindUsagesProvider"/>-->
+
+<!--        <lang.refactoringSupport language="batect.yml"-->
+<!--                                 implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileRefactoringSupportProvider"/>-->
+
+<!--        <lang.elementManipulator forClass="org.zhangwenqing.jetbrains.batect.batectFile.parser.psi.BatectFileFileOrUrl"-->
+<!--                                 implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.parser.psi.impl.BatectPsiFileOrUrlManipulator"/>-->
+
+<!--        <codeInsight.lineMarkerProvider language="batect.yml"-->
+<!--                                        implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileRunLineMarkerProvider"/>-->
+
+<!--        <runConfigurationProducer implementation="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileRunConfigurationProducer"/>-->
+
+<!--        <psi.referenceContributor language="batect.yml"-->
+<!--                                  implementation="org.zhangwenqing.jetbrains.batect.batectFile.BatectFilePathReferenceContributor"/>-->
+
+<!--        <lang.foldingBuilder language="batect.yml"-->
+<!--                             implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectFileFoldingBuilder"/>-->
+
+<!--        <localInspection language="batect.yml"-->
+<!--                         groupBundle="messages.BetectBundle"-->
+<!--                         groupKey="BatectFileDeploymentSourceType.name"-->
+<!--                         level="ERROR"-->
+<!--                         enabledByDefault="true"-->
+<!--                         shortName="BatectFileArgumentCount"-->
+<!--                         bundle="messages.BetectBundle"-->
+<!--                         key="BatectFileArgumentCountInspection.display.name"-->
+<!--                         implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.inspections.BatectFileArgumentCountInspection"/>-->
+<!--        <localInspection language="batect.yml"-->
+<!--                         groupBundle="messages.BetectBundle"-->
+<!--                         groupKey="BatectFileDeploymentSourceType.name"-->
+<!--                         level="ERROR"-->
+<!--                         enabledByDefault="true"-->
+<!--                         shortName="BatectFileAssignments"-->
+<!--                         bundle="messages.BatectBundle"-->
+<!--                         key="BatectFileAssignmentsInspection.display.name"-->
+<!--                         implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.inspections.BatectrFileAssignmentsInspection"/>-->
+<!--        <localInspection language="batect.yml"-->
+<!--                         groupBundle="messages.BetectBundle"-->
+<!--                         groupKey="BatectFileDeploymentSourceType.name"-->
+<!--                         level="WARNING"-->
+<!--                         enabledByDefault="true"-->
+<!--                         shortName="BatectFileAddOrCopySemantic"-->
+<!--                         bundle="messages.BetectBundle"-->
+<!--                         key="BatectFileAddOrCopySemanticInspection.display.name"-->
+<!--                         implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.inspections.BatectFileAddOrCopySemanticInspection"/>-->
+
     </extensions>
 
     <actions>
