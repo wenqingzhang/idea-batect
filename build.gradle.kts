@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
 	repositories {
+		// use Aliyun mirror to resolve network issue in China
+		//maven("https://maven.aliyun.com/repository/public")
 		mavenCentral()
 		maven("https://dl.bintray.com/jetbrains/intellij-plugin-service")
 	}

@@ -2,28 +2,33 @@
     <id>org.zhangwenqing.jetbrains.batect</id>
     <name>batect</name>
     <vendor email="me@zhangwenqing.org" url="http://www.zhangwenqing.org">Zhang Wenqing</vendor>
-    <version>2021.2.24-0</version>
+    <version>2021.3.4-0</version>
     <category>Tools Integration</category>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+
+    <actions>
+        <action id="NewBatectConfigFile" class="org.zhangwenqing.jetbrains.batect.actions.CreateBatectConfigFileAction">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewDir"/>
+        </action>
+    </actions>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-        <!-- batectFile language-->
-<!--        <lang.parserDefinition language="batect.yml"-->
-<!--                               implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.parser.BatectParserDefinition"/>-->
-<!--        <lang.commenter language="batect.yml"-->
-<!--                        implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectCommenter"/>-->
-<!--        <braceMatcher filetype="batect.yml"-->
-<!--                      implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectPairedBraceMatcher"/>-->
+        <!-- batect.yml -->
         <fileType language="batect.yml"
                   fieldName="BATECT_CONFIG_FILE_TYPE"
                   implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectConfigFileType"
                   name="batect"
                   fileNames="batect.yml"
                   extensions="yml"/>
+<!--        <lang.commenter language="batect.yml"-->
+<!--                        implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectCommenter"/>-->
+<!--        <braceMatcher filetype="batect.yml"-->
+<!--                      implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.BatectPairedBraceMatcher"/>-->
+
 <!--        <lang.syntaxHighlighter language="batect.yml"-->
 <!--                                implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.highlighting.highlight.BatectSyntaxHighlighter"/>-->
 <!--        <completion.contributor language="batect.yml"-->
@@ -86,8 +91,4 @@
 <!--                         implementationClass="org.zhangwenqing.jetbrains.batect.batectFile.inspections.BatectFileAddOrCopySemanticInspection"/>-->
 
     </extensions>
-
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
 </idea-plugin>
