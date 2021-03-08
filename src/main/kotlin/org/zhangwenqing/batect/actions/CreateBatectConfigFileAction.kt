@@ -45,7 +45,7 @@ class CreateBatectConfigFileAction : AnAction(
 
 		val file = directory.findFile(filename)
 		var virtualFile = file?.virtualFile ?: directory.virtualFile.findChild(filename)
-		if (file == null || virtualFile == null)
+		if (virtualFile == null)
 		{
 			virtualFile = createBatectConfigFile(directory)?.virtualFile
 		}
