@@ -1,4 +1,4 @@
-package org.zhangwenqing.jetbrains
+package org.zhangwenqing.batect
 
 import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vcs.changes.ignore.psi.IgnoreEntry
@@ -8,7 +8,7 @@ import junit.framework.TestCase
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Modifier
 
-import org.zhangwenqing.jetbrains.util.Constants
+import org.zhangwenqing.batect.util.Constants
 
 @Suppress("UnnecessaryAbstractClass")
 abstract class Common<T> : BasePlatformTestCase()

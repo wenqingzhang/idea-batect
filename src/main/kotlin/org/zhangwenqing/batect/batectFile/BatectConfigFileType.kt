@@ -1,11 +1,11 @@
-package org.zhangwenqing.jetbrains.batect.batectFile
+package org.zhangwenqing.batect.batectFile
 
 import com.intellij.openapi.fileTypes.LanguageFileType
 import com.intellij.openapi.vfs.VirtualFile
 import icons.BatectIcons
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.NotNull
-import org.zhangwenqing.jetbrains.util.Constants
+import org.zhangwenqing.batect.util.Constants
 import javax.swing.Icon
 
 class BatectConfigFileType private constructor() : LanguageFileType(BatectConfigLanguage.INSTANCE)

@@ -1,11 +1,11 @@
 package icons
 
 import org.junit.Test
-import org.zhangwenqing.jetbrains.Common
+import org.zhangwenqing.batect.Common
 import java.lang.reflect.InvocationTargetException
 
-class IconsTest : Common<BatectIcons>() {
-
+class IconsTest : Common<BatectIcons>()
+{
 	@Test
 	@Throws(
 	  InvocationTargetException::class,
@@ -13,7 +13,8 @@ class IconsTest : Common<BatectIcons>() {
 	  InstantiationException::class,
 	  IllegalAccessException::class
 	)
-	fun testPrivateConstructor() {
+	fun testPrivateConstructor()
+	{
 		privateConstructor(BatectIcons::class.java)
 	}
 }

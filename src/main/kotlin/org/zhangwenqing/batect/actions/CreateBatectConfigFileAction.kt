@@ -1,4 +1,4 @@
-package org.zhangwenqing.jetbrains.batect.actions
+package org.zhangwenqing.batect.actions
 
 import com.intellij.ide.actions.CreateFileAction.MkDirs
 import com.intellij.ide.fileTemplates.FileTemplate
@@ -21,7 +21,7 @@ import icons.BatectIcons
 import org.apache.velocity.runtime.parser.ParseException
 import org.jetbrains.annotations.NotNull
 import org.jetbrains.annotations.Nullable
-import org.zhangwenqing.jetbrains.BatectBundle
+import org.zhangwenqing.batect.BatectBundle
 
 const val NEW_BATECT_CONFIG_FILE_NAME = "batect.yml"
 const val NEW_BATECT_CONFIG_TEMPLATE_NAME = "Batect Config Template"

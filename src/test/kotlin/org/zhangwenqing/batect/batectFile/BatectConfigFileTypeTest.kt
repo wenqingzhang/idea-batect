@@ -1,10 +1,10 @@
-package org.zhangwenqing.jetbrains.batect.batectFile
+package org.zhangwenqing.batect.batectFile
 
 import com.intellij.mock.MockVirtualFile
 import icons.BatectIcons
 import org.junit.Test
-import org.zhangwenqing.jetbrains.util.Constants
-import org.zhangwenqing.jetbrains.Common
+import org.zhangwenqing.batect.util.Constants
+import org.zhangwenqing.batect.Common
 import java.lang.reflect.InvocationTargetException
 
 class BatectConfigFileTypeTest : Common<BatectConfigFileType>()

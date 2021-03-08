@@ -1,4 +1,4 @@
-package org.zhangwenqing.jetbrains.util
+package org.zhangwenqing.batect.util
 
 import org.jetbrains.annotations.NonNls
 
