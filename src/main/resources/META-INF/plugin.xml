@@ -25,6 +25,10 @@
                   name="batect"
                   fileNames="batect.yml"
                   extensions="yml"/>
+
+        <lang.parserDefinition language="batect.yml"
+                               implementationClass="org.zhangwenqing.batect.batectFile.BatectConfigParserDefinition"/>
+
 <!--        <lang.commenter language="batect.yml"-->
 <!--                        implementationClass="org.zhangwenqing.batect.batectFile.BatectCommenter"/>-->
 <!--        <braceMatcher filetype="batect.yml"-->

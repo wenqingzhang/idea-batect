@@ -1,0 +1,104 @@
+{
+  parserClass="org.zhangwenqing.batect.batectFile.parser.BatectFileParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Batect"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.zhangwenqing.batect.batectFile.psi"
+  psiImplPackage="org.zhangwenqing.batect.batectFile.psi.impl"
+
+  elementTypeClass="org.zhangwenqing.batect.batectFile.psi.BatectElementType"
+  tokenTypeClass="org.zhangwenqing.batect.batectFile.psi.BatectTokenType"
+
+  tokens = [
+    COMMENT = "regexp:(#)[^\r\n]*"
+    PLAIN_TEXT = "regexp:[a-zA-Z][a-zA-Z0-9_\-.]*[a-zA-Z0-9]"
+    BASH = "regexp:[\w'\".\-_;>&!]*"
+    IMAGE_VERSION = "regexp:[a-zA-Z0-9][a-zA-Z0-9_\-.]*[a-zA-Z0-9]"
+    WHITE_SPACE = " "
+    INDENT_LEVEL1 = "  "
+    INDENT_LEVEL2 = "    "
+    INDENT_LEVEL3 = "      "
+    COLON = ":"
+  ]
+}
+
+batect-file ::= batect-property-list*
+
+batect-property-list ::=
+    project_name |
+    config_variables |
+    containers |
+    include |
+    tasks
+
+// general property list
+property-list ::=
+    (INDENT_LEVEL1 property-key WHITE_SPACE* COLON property-value EOL*) property-list
+
+property-key ::= PLAIN_TEXT
+property-value ::= property-list2 | PLAIN_TEXT COLON IMAGE_VERSION | PLAIN_TEXT | BASH
+
+property-list2 ::=
+    (INDENT_LEVEL2 property-key WHITE_SPACE* COLON property-value EOL*) property-list2
+
+// project_name object
+project_name ::= project_name_key WHITE_SPACE* COLON WHITE_SPACE* project_name_value EOL*
+project_name_key ::= 'project_name'
+project_name_value ::= PLAIN_TEXT
+
+// config_variables object
+config_variables ::= config_variable_key WHITE_SPACE* COLON WHITE_SPACE* config_variable_value EOL*
+config_variable_key ::= 'config_variables'
+config_variable_value ::= PLAIN_TEXT | (INDENT_LEVEL1 property-list)
+
+// containers object
+containers ::= containers-key WHITE_SPACE* COLON WHITE_SPACE* containers-value EOL*
+containers-key ::= 'containers'
+containers-value ::= (INDENT_LEVEL1 container-list) | PLAIN_TEXT
+
+container-list ::= container-name WHITE_SPACE* COLON WHITE_SPACE* EOL INDENT_LEVEL2 container-property-list EOL*
+
+container-name ::= PLAIN_TEXT
+container-property-list ::= container-image-item WHITE_SPACE* EOL*
+
+container-image-item ::=
+    container-image-image-key WHITE_SPACE* COLON WHITE_SPACE* container-image-image-value EOL* |
+    container-image-command-key WHITE_SPACE* COLON WHITE_SPACE* container-image-command-value EOL*
+
+container-image-image-key ::= 'image'
+container-image-image-value ::= PLAIN_TEXT COLON IMAGE_VERSION
+
+container-image-command-key ::= 'command'
+container-image-command-value ::= BASH
+
+
+// include object
+include ::= include-key WHITE_SPACE* COLON WHITE_SPACE* include-value EOL*
+include-key ::= 'include'
+include-value ::= PLAIN_TEXT | property-list*
+
+// tasks object
+tasks ::= tasks-key WHITE_SPACE* COLON WHITE_SPACE* tasks-value EOL*
+
+tasks-key ::= 'tasks'
+tasks-value ::= PLAIN_TEXT | task-list
+
+task-list ::=
+    INDENT_LEVEL2 task-name WHITE_SPACE* COLON WHITE_SPACE* EOL task-property-list EOL*
+
+task-name ::= PLAIN_TEXT
+task-property-list ::=
+    INDENT_LEVEL2 task-image-item WHITE_SPACE* EOL*
+
+task-image-item ::=
+    'description' WHITE_SPACE* COLON WHITE_SPACE* PLAIN_TEXT EOL* |
+    'run' WHITE_SPACE* COLON WHITE_SPACE* EOL run-property-list EOL*
+
+run-property-list ::=
+    INDENT_LEVEL3 task-image-run-item WHITE_SPACE* EOL*
+
+task-image-run-item ::=
+    "container" WHITE_SPACE* COLON WHITE_SPACE* PLAIN_TEXT |
+    'command' WHITE_SPACE* COLON WHITE_SPACE* BASH EOL*
